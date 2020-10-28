@@ -1,7 +1,9 @@
-const plain = "TELEGRAM";
+const plain = "TELEGRAMFACEBOOKINSTAGRAM";
 const k = 3;
 
-let splittedPlain = plain.split('');
+let removedDuplicateString = removeDuplicateCharacters(plain);
+
+let splittedPlain = removedDuplicateString.split('');
 let currentLetter;
 let encrypted = '';
 for(let i = 0; i < splittedPlain.length; i++) {
@@ -13,3 +15,12 @@ for(let i = 0; i < splittedPlain.length; i++) {
   encrypted += currentLetter;
 }
 console.log(encrypted)
+
+function removeDuplicateCharacters(string) {
+  return string
+    .split('')
+    .filter(function(item, pos, self) {
+      return self.indexOf(item) == pos;
+    })
+    .join('');
+}
